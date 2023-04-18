@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInVC: UIViewController {
     
@@ -21,8 +22,18 @@ class SignInVC: UIViewController {
     }
 
     @IBAction func signInButton(_ sender: Any) {
-        if let tabbarVC = storyboard?.instantiateViewController(withIdentifier: "tabbarVC") {
-            navigationController?.pushViewController(tabbarVC, animated: true)
+        if usernameOrEmailTextField.text != "" && passwordTextField.text != "" {
+            Auth.auth().signIn(withEmail: usernameOrEmailTextField.text!, password: passwordTextField.text!) {(result, error) in
+                if error != nil {
+                    Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
+                } else {
+                    if let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "feedVC") as? FeedVC {
+                        self.navigationController?.pushViewController(feedVC, animated: true)
+                    }
+                }
+            }
+        } else {
+            Common.showAlert(errorTitle: "Error!", errorMessage: "Please type your username/email and password.", vc: self )
         }
     }
     

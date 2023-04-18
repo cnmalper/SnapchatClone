@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpVC: UIViewController {
     
@@ -23,6 +24,19 @@ class SignUpVC: UIViewController {
     @IBAction func createAccountButton(_ sender: Any) {
         if signUpUsernameOrEmailTaxtField.text != "" && signUpPasswordTextField.text != "" {
             
+            Auth.auth().createUser(withEmail: signUpUsernameOrEmailTaxtField.text!, password: signUpPasswordTextField.text!) { (auth, error) in
+                if error != nil {
+                    Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
+                } else {
+                    if let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "feedVC") as? FeedVC {
+                       self.navigationController?.pushViewController(feedVC, animated: true)
+                    }
+                }
+            }
+            
+            
+        } else {
+            Common.showAlert(errorTitle: "Error!", errorMessage: "Please type your username/email and password.", vc: self)
         }
     }
     

@@ -12,7 +12,7 @@ class Common : NSObject {
     
     class func showAlert(errorTitle: String, errorMessage: String, vc: UIViewController){
         let alert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: errorTitle, style: UIAlertAction.Style.default))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
         vc.present(alert, animated: true)
     }
     
