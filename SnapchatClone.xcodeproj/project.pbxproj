@@ -14,6 +14,10 @@
 		B493318429ED310B00F2584B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B493318229ED310B00F2584B /* Main.storyboard */; };
 		B493318629ED310C00F2584B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B493318529ED310C00F2584B /* Assets.xcassets */; };
 		B493318929ED310C00F2584B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B493318729ED310C00F2584B /* LaunchScreen.storyboard */; };
+		B4E0C86929EDB20D00DC8F53 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0C86829EDB20D00DC8F53 /* SignUpVC.swift */; };
+		B4E0C86B29EDBF0400DC8F53 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0C86A29EDBF0400DC8F53 /* FeedVC.swift */; };
+		B4E0C86D29EDBF1B00DC8F53 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0C86C29EDBF1B00DC8F53 /* UploadVC.swift */; };
+		B4E0C86F29EDBFA300DC8F53 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0C86E29EDBFA300DC8F53 /* SettingsVC.swift */; };
 		FF2517C8585E94F7A6A68BFB /* Pods_SnapchatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD5D5E53A1CE140744196FD /* Pods_SnapchatClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +34,10 @@
 		B493318529ED310C00F2584B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B493318829ED310C00F2584B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B493318A29ED310C00F2584B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E0C86829EDB20D00DC8F53 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B4E0C86A29EDBF0400DC8F53 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		B4E0C86C29EDBF1B00DC8F53 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
+		B4E0C86E29EDBFA300DC8F53 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +73,8 @@
 		B493317B29ED310B00F2584B /* SnapchatClone */ = {
 			isa = PBXGroup;
 			children = (
-				B493317C29ED310B00F2584B /* AppDelegate.swift */,
-				B493317E29ED310B00F2584B /* SceneDelegate.swift */,
-				B493318029ED310B00F2584B /* SignInVC.swift */,
+				B4E0C87029EDBFAA00DC8F53 /* ViewControllers */,
+				B4E0C87129EDBFCD00DC8F53 /* Delegates */,
 				B493318229ED310B00F2584B /* Main.storyboard */,
 				B493318529ED310C00F2584B /* Assets.xcassets */,
 				B493318729ED310C00F2584B /* LaunchScreen.storyboard */,
@@ -75,6 +82,27 @@
 				B493318A29ED310C00F2584B /* Info.plist */,
 			);
 			path = SnapchatClone;
+			sourceTree = "<group>";
+		};
+		B4E0C87029EDBFAA00DC8F53 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B493318029ED310B00F2584B /* SignInVC.swift */,
+				B4E0C86829EDB20D00DC8F53 /* SignUpVC.swift */,
+				B4E0C86A29EDBF0400DC8F53 /* FeedVC.swift */,
+				B4E0C86C29EDBF1B00DC8F53 /* UploadVC.swift */,
+				B4E0C86E29EDBFA300DC8F53 /* SettingsVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B4E0C87129EDBFCD00DC8F53 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B493317E29ED310B00F2584B /* SceneDelegate.swift */,
+				B493317C29ED310B00F2584B /* AppDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		ED081271519ED3CAA3E05C71 /* Frameworks */ = {
@@ -210,9 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E0C86929EDB20D00DC8F53 /* SignUpVC.swift in Sources */,
+				B4E0C86D29EDBF1B00DC8F53 /* UploadVC.swift in Sources */,
 				B493318129ED310B00F2584B /* SignInVC.swift in Sources */,
+				B4E0C86B29EDBF0400DC8F53 /* FeedVC.swift in Sources */,
 				B493317D29ED310B00F2584B /* AppDelegate.swift in Sources */,
 				B493317F29ED310B00F2584B /* SceneDelegate.swift in Sources */,
+				B4E0C86F29EDBFA300DC8F53 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -342,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
