@@ -21,6 +21,9 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func createAccountButton(_ sender: Any) {
+        if signUpUsernameOrEmailTaxtField.text != "" && signUpPasswordTextField.text != "" {
+            
+        }
     }
     
 }

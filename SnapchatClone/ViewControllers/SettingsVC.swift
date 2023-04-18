@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    @IBOutlet weak var signUpSocialImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

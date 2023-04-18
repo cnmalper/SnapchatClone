@@ -18,7 +18,6 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("BOOL")
     }
 
     @IBAction func signInButton(_ sender: Any) {
