@@ -28,9 +28,7 @@ class SignUpVC: UIViewController {
                 if error != nil {
                     Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
                 } else {
-                    if let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "feedVC") as? FeedVC {
-                       self.navigationController?.pushViewController(feedVC, animated: true)
-                    }
+                    self.performSegue(withIdentifier: "toTabbarVC", sender: nil)
                 }
             }
             

@@ -27,9 +27,7 @@ class SignInVC: UIViewController {
                 if error != nil {
                     Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
                 } else {
-                    if let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "feedVC") as? FeedVC {
-                        self.navigationController?.pushViewController(feedVC, animated: true)
-                    }
+                    self.performSegue(withIdentifier: "toTabbarVC", sender: nil)
                 }
             }
         } else {
@@ -38,9 +36,7 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        if let signUpVC = storyboard?.instantiateViewController(withIdentifier: "signUpVC") {
-            navigationController?.pushViewController(signUpVC, animated: true)
-        }
+        self.performSegue(withIdentifier: "toSignUpVC", sender: nil)
     }
 }
 
