@@ -11,11 +11,13 @@ import FirebaseAuth
 class SettingsVC: UIViewController {
 
     @IBOutlet weak var signUpSocialImage: UIImageView!
+    @IBOutlet weak var settingsMailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let currentUserSetingsMail = Auth.auth().currentUser?.email
+        self.settingsMailLabel.text = "Signed in as \(currentUserSetingsMail ?? "Unknown user")"
     }
     
     @IBAction func logOutButton(_ sender: Any) {

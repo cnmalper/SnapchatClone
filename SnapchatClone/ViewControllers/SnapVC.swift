@@ -8,8 +8,6 @@
 import UIKit
 
 class SnapVC: UIViewController {
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
