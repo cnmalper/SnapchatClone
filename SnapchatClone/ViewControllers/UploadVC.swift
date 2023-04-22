@@ -61,25 +61,24 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
                             
                             let firestore = Firestore.firestore()
                             
-                            firestore.collection("Snaps").whereField("snapOwner", isEqualTo: Auth.auth().currentUser?.email).getDocuments { (snapshot, error) in
+                            firestore.collection("Snaps").whereField("snapOwner", isEqualTo: UserSingleton.sharedUserInfo.username).getDocuments { (snapshot, error) in
                                 
                                 if error != nil {
                                     Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
                                 } else {
                                     if snapshot?.isEmpty == false && snapshot != nil {
                                         for document in snapshot!.documents {
-                                            let documentID = document.documentID
+                                            
+                                            let documentId = document.documentID
+                                            
                                             if var imageUrlArray = document.get("imageUrlArray") as? [String] {
-                                                if let imageUrlString = imageUrl {
-                                                    imageUrlArray.append(imageUrlString)
-                                                    let additionalDict = ["imageUrlArray" :  imageUrlArray] as [String : Any]
-                                                    firestore.collection("Snaps").document(documentID).setData(additionalDict, merge: true) { (error) in
-                                                        if error != nil {
-                                                            Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
-                                                        } else {
-                                                            self.uploadImageView.image = UIImage(named: "logo")
-                                                            self.tabBarController?.selectedIndex = 0
-                                                        }
+                                                
+                                                let additionalDict = ["imageUrlArray" : imageUrlArray] as [String : Any]
+                                                
+                                                firestore.collection("Snaps").document(documentId).setData(additionalDict, merge: true) { (error) in
+                                                    if error == nil {
+                                                        self.tabBarController?.selectedIndex = 0
+                                                        self.uploadImageView.image = UIImage(named: "selectimage.png")
                                                     }
                                                 }
                                             }
@@ -87,7 +86,7 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
                                     } else {
                                         // Daha once veri kaydedilmemis
                                         
-                                        let snapDict = ["imageUrlArray" : [imageUrl], "snapOwner" : self.uploadCurrentUserMail, "date" : "\(FieldValue.serverTimestamp())"] as [String : Any]
+                                        let snapDict = ["imageUrlArray" : [imageUrl!], "snapOwner" : UserSingleton.sharedUserInfo.username,"date":FieldValue.serverTimestamp()] as [String : Any]
                                         firestore.collection("Snaps").addDocument(data: snapDict) { (error) in
                                             if error != nil {
                                                 Common.showAlert(errorTitle: "Error!", errorMessage: error?.localizedDescription ?? "Error!", vc: self)
