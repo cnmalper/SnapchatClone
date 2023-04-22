@@ -72,13 +72,14 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
                                             let documentId = document.documentID
                                             
                                             if var imageUrlArray = document.get("imageUrlArray") as? [String] {
+                                                imageUrlArray.append(imageUrl!)
                                                 
                                                 let additionalDict = ["imageUrlArray" : imageUrlArray] as [String : Any]
                                                 
                                                 firestore.collection("Snaps").document(documentId).setData(additionalDict, merge: true) { (error) in
                                                     if error == nil {
                                                         self.tabBarController?.selectedIndex = 0
-                                                        self.uploadImageView.image = UIImage(named: "selectimage.png")
+                                                        self.uploadImageView.image = UIImage(named: "logo")
                                                     }
                                                 }
                                             }

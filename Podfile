@@ -11,6 +11,10 @@ pod 'FirebaseFirestore'
 pod 'FirebaseCore'
 pod 'FirebaseStorage'
 pod 'SDWebImage'
+pod 'ImageSlideshow', '~> 1.9.0'
+pod "ImageSlideshow/SDWebImage"
+
+
 
   # Pods for SnapchatClone
 

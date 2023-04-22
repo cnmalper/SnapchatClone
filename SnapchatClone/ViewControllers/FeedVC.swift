@@ -53,9 +53,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                     if let difference = Calendar.current.dateComponents([.hour], from: date.dateValue(), to: Date()).hour {
                                         if difference >= 24 {
                                             self.fireStoreDatabase.collection("Snaps").document(documentId).delete()
+                                        } else {
+                                            let snap = Snap(username: username, imageUrlArray: imageUrlArray, date: date.dateValue())
+                                            self.snapArray.append(snap)
                                         }
-                                        let snap = Snap(username: username, imageUrlArray: imageUrlArray, date: date.dateValue(), timeDifference: 24 - difference)
-                                        self.snapArray.append(snap)
+                                        self.timeLeft = 24 - difference
                                     }
                                 }
                             }
@@ -95,5 +97,19 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.cellsnapImage.sd_setImage(with: URL(string: snapArray[indexPath.row].imageUrlArray[0]))
         cell.cellUserEmailLabel.text = self.snapArray[indexPath.row].username // snapArray[indexPath.row] bu bir snap object verir.
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSnapVC" {
+            if let destinationVC = segue.destination as? SnapVC {
+                destinationVC.selectedSnap = self.chosenSnap
+                destinationVC.selectedTime = self.timeLeft
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosenSnap = self.snapArray[indexPath.row]
+        performSegue(withIdentifier: "toSnapVC", sender: nil)
     }
 }
