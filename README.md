@@ -5,6 +5,7 @@ Built an app that users can upload his/her Snaps (as image).
 - UIKit -> https://developer.apple.com/documentation/uikit
 - SDWebImage -> https://github.com/SDWebImage/SDWebImage
 - ImageSlideShow -> https://github.com/zvonicek/ImageSlideshow
+- TableView
 
 ## Simulator & iPhone Screenshots
 <p><img align="left" src="https://github.com/cnmalper/SnapchatClone/blob/main/Images/1.png" width="300" height="650"/></p>
